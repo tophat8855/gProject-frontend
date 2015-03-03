@@ -10,7 +10,6 @@
         optionLabelPath="content.stationName"
         selectionBinding="content.selectedObject"}}
     </div>
-
   </div>
 
   <div class="form-group">
@@ -24,57 +23,12 @@
         optionLabelPath="content.stationName"
         selectionBinding="content.selectedObject"}}
     </div>
-
-    <!-- <select name="start" class="form-control">
-      <option data-value="12TH">12th St. Oakland City Center</div>
-      <option data-value="16TH">16th St. Mission (SF)</option>
-      <option data-value="19TH">19th St. Oakland</option>
-      <option data-value="24TH">24th St. Mission (SF)</option>
-      <option data-value="ASHB">Ashby (Berkeley)</option>
-      <option data-value="BALB">Balboa Park (SF)</option>
-      <option data-value="BAYF">Bay Fair (San Leandro)</option>
-      <option data-value="CIVC">Civic Center/UN Plaza (SF)</option>
-      <option data-value="COLM">Colma</option>
-      <option data-value="COLS">Coliseum</option>
-      <option data-value="OAC">Oakland International Airport</option>
-      <option data-value="CONC">Concord</option>
-      <option data-value="CVLY">Castro Valley</option>
-      <option data-value="DALY">Daly City</option>
-      <option data-value="DBRK">Downtown Berkeley</option>
-      <option data-value="DELN">El Cerrito del Norte</option>
-      <option data-value="DUBL">Dublin/Pleasanton</option>
-      <option data-value="EMBR">Embarcadero (SF)</option>
-      <option data-value="FRMT">Fremont</option>
-      <option data-value="FTVL">Fruitvale (Oakland)</option>
-      <option data-value="GLEN">Glen Park (SF)</option>
-      <option data-value="HAYW">Hayward</option>
-      <option data-value="LAFY">Lafayette</option>
-      <option data-value="LAKE">Lake Merritt (Oakland)</option>
-      <option data-value="MACR">MacArthur (Oakland)</option>
-      <option data-value="MLBR">Millbrae</option>
-      <option data-value="MONT">Mongomery St. (SF)</option>
-      <option data-value="NBRK">North Berkeley</option>
-      <option data-value="NCON">North Concord/Martinez</option>
-      <option data-value="ORIN">Orinda</option>
-      <option data-value="PHIL">Pleasant Hill/Contra Costa Centre</option>
-      <option data-value="PITT">Pittsburg/Bay Point</option>
-      <option data-value="PLZA">El Cerrito Plaza</option>
-      <option data-value="POWL">Powell St. (SF)</option>
-      <option data-value="RICH">Richmond</option>
-      <option data-value="ROCK">Rockridge (Oakland)</option>
-      <option data-value="SANL">San Leandro</option>
-      <option data-value="SBRN">San Bruno</option>
-      <option data-value="SFIA">San Francisco Int'l Airport</option>
-      <option data-value="SHAY">South Hayward</option>
-      <option data-value="SSAN">South San Francisco</option>
-      <option data-value="UCTY">Union City</option>
-      <option data-value="WCRK">Walnut Creek</option>
-      <option data-value="WDUB">West Dublin/Pleasanton</option>
-      <option data-value="WOAK">West Oakland</option>
-    </select> -->
   </div>
 
-  <button class="btn btn-primary" {{action 'calculateBartMiles'}}>Calculate</button>
+  <button class="btn btn-primary" {{action 'calculateBartMiles' selectedStartStation selectedEndStation}}>Calculate</button>
+
 </form>
+
+{{result}}
 
 {{outlet}}

@@ -6,8 +6,8 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('bart', function() {
-    this.route('results', {path: '/bart/results'});
+  this.resource('bart', function() {
+    this.route('results', {path: 'results'});
   });
   this.route('walk');
 });
