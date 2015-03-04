@@ -2,8 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   selectedStartStation: null,
-  result: "",
   selectedEndStation:null,
+  result: "",
   stations: [
     {stationName: "12th St. Oakland City Center", id: "12TH"},
     {stationName: "16th St. Mission (SF)", id: "16TH"},
@@ -55,7 +55,6 @@ export default Ember.Controller.extend({
     calculateBartMiles: function(startStation, endStation){
       var distance;
       var emissions;
-      var newResult = [];
       var _this = this;
 
       Ember.$.getJSON('http://localhost:3000/bart?start=' + startStation + '&end=' + endStation).then(function (results) {
@@ -63,8 +62,6 @@ export default Ember.Controller.extend({
         emissions = results.stations[0].emissions;
 
         var fancyResult = "Distance between stations: " + distance + " miles. Emissions saved: " + emissions + " pounds of CO2";
-        newResult.push(distance);
-        newResult.push(emissions);
         _this.set('result', fancyResult);
       });
 
