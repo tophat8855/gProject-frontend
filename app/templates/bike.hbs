@@ -1,11 +1,11 @@
-<h3>Walking</h3>
+<h3>Biking</h3>
 
 <form class="">
   <div class="form-group">
     <span class="label label-default">Starting address</span>
 
     <div class="form-control" placeholder="starting address">
-      {{input value=startWalk}}
+      {{input value=startBike}}
     </div>
   </div>
 
@@ -13,11 +13,11 @@
     <span class="label label-default">Ending address</span>
 
     <div type="text" class="form-control" placeholder="ending address">
-      {{input value=endWalk}}
+      {{input value=endBike}}
     </div>
   </div>
 
-  <button class="btn btn-primary" {{action 'calculateWalkMiles' startWalk endWalk}}>Calculate</button>
+  <button class="btn btn-primary" {{action 'calculateBikeMiles' startBike endBike}}>Calculate</button>
 </form>
 
 {{result}}
