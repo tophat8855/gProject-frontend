@@ -10,6 +10,10 @@ Router.map(function() {
   this.route('walk');
   this.route('bike');
   this.route('about');
+  this.resource('trip', function() {
+    this.route('new');
+  });
+  this.resource('leg', function() {});
 });
 
 export default Router;
