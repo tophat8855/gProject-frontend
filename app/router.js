@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('bart');
   this.route('walk');
   this.route('bike');
+  this.route('about');
 });
 
 export default Router;
