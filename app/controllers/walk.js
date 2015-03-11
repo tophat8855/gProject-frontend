@@ -6,15 +6,16 @@ export default Ember.Controller.extend({
   result: "",
   actions: {
     calculateWalkMiles: function(start, end) {
-      var distance;
       var _this = this;
+      var url = 'http://localhost:3000/walk?start=' + start + '&end=' + end;
 
-      Ember.$.getJSON('http://localhost:3000/walk?start=' + start + '&end=' + end).then(function (results) {
-        distance = results["distance"]["text"];
+      return Ember.$.getJSON(url).then(function (results) {
+        Ember.run(function() {
+          var distance = results["distance"]["text"];
+          var fancyResult = "Distance walked: " + distance;
 
-        var fancyResult = "Distance walked: " + distance;
-
-        _this.set('result', fancyResult);
+          _this.set('result', fancyResult);
+        });
       });
     }
   }

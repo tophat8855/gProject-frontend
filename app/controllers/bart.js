@@ -58,11 +58,13 @@ export default Ember.Controller.extend({
       var _this = this;
 
       Ember.$.getJSON('http://localhost:3000/bart?start=' + startStation + '&end=' + endStation).then(function (results) {
-        distance = results.stations[0].distance;
-        emissions = results.stations[0].emissions;
+        Ember.run(function() {
+          distance = results.stations[0].distance;
+          emissions = results.stations[0].emissions;
 
-        var fancyResult = "Distance between stations: " + distance + " miles. Emissions saved: " + emissions + " pounds of CO2";
-        _this.set('result', fancyResult);
+          _this.set('distance', distance);
+          _this.set('emissions', emissions);
+        });
       });
 
     }
