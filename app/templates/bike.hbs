@@ -5,7 +5,7 @@
     <span class="label label-default">Starting address</span>
 
     <div class="form-control" placeholder="starting address">
-      {{input value=startBike}}
+      {{input id='startAddress' value=startBike}}
     </div>
   </div>
 
@@ -13,11 +13,13 @@
     <span class="label label-default">Ending address</span>
 
     <div type="text" class="form-control" placeholder="ending address">
-      {{input value=endBike}}
+      {{input id='endAddress' value=endBike}}
     </div>
   </div>
 
-  <button class="btn btn-primary" {{action 'calculateBikeMiles' startBike endBike}}>Calculate</button>
+  <button class="btn btn-primary" id='calculate' {{action 'calculateBikeMiles' startBike endBike}}>Calculate</button>
 </form>
 
-{{result}}
+<div class="bike-miles">
+  {{result}}
+</div>

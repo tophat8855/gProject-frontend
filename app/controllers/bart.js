@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   selectedEndStation:null,
   result: "",
   stations: [
+    {stationName: "", id: ""},
     {stationName: "12th St. Oakland City Center", id: "12TH"},
     {stationName: "16th St. Mission (SF)", id: "16TH"},
     {stationName: "19th St. Oakland", id: "19TH"},

@@ -54,3 +54,20 @@ test('adding a walk leg', function(assert) {
   });
 
 });
+
+test('adding a bike leg', function(assert) {
+  visit('/trip/new');
+  click('#bike');
+
+  andThen(function() {
+    assert.equal(currentPath(), 'bike');
+    fillIn('#startAddress', '44 Tehama San Franciso, CA');
+    fillIn('#endAddress', '543 Howard San Francisco, CA');
+    click('#calculate');
+  });
+
+  andThen(function() {
+    assert.equal($('.bike-miles').text().trim(), "Distance biked: 0.7 mi");
+  });
+
+});

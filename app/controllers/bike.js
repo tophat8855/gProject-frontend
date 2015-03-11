@@ -9,12 +9,14 @@ export default Ember.Controller.extend({
       var distance;
       var _this = this;
 
-      Ember.$.getJSON('http://localhost:3000/bike?start=' + start + '&end=' + end).then(function (results) {
-        distance = results["distance"]["text"];
+      return Ember.$.getJSON('http://localhost:3000/bike?start=' + start + '&end=' + end).then(function (results) {
+        Ember.run(function() {
+          distance = results["distance"]["text"];
 
-        var fancyResult = "Distance biked: " + distance;
+          var fancyResult = "Distance biked: " + distance;
 
-        _this.set('result', fancyResult);
+          _this.set('result', fancyResult);
+        });
       });
     }
   }
