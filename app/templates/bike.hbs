@@ -20,6 +20,8 @@
   <button class="btn btn-primary" id='calculate' {{action 'calculateBikeMiles' startBike endBike}}>Calculate</button>
 </form>
 
+{{#if distance}}
 <div class="bike-miles">
-  {{result}}
+  Distance biked: {{distance}}
 </div>
+{{/if}}

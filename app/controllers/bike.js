@@ -13,9 +13,7 @@ export default Ember.Controller.extend({
         Ember.run(function() {
           distance = results["distance"]["text"];
 
-          var fancyResult = "Distance biked: " + distance;
-
-          _this.set('result', fancyResult);
+          _this.set('distance', distance);
         });
       });
     }

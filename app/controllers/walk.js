@@ -12,9 +12,8 @@ export default Ember.Controller.extend({
       return Ember.$.getJSON(url).then(function (results) {
         Ember.run(function() {
           var distance = results["distance"]["text"];
-          var fancyResult = "Distance walked: " + distance;
 
-          _this.set('result', fancyResult);
+          _this.set('distance', distance);
         });
       });
     }
