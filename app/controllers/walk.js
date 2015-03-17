@@ -12,6 +12,8 @@ export default Ember.Controller.extend({
       return Ember.$.getJSON(url).then(function (results) {
         Ember.run(function() {
           var distance = results["distance"]["text"];
+          var intDistance = parseInt(distance);
+          console.log(intDistance);
 
           _this.set('distance', distance);
         });
