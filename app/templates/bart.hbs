@@ -35,4 +35,5 @@
 <div class="bart-miles">
   Distance between stations: {{distance}} miles. Emissions saved: {{emissions}} pounds of CO2
 </div>
+<button class="btn btn-primary" id='saveBart' {{action 'saveBART' selectedStartStation selectedEndStation distance emissions}}>Save BART leg</button>
 {{/if}}

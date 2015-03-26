@@ -67,7 +67,17 @@ export default Ember.Controller.extend({
           _this.set('emissions', emissions);
         });
       });
+    },
 
+    saveBART: function(startStation, endStation, calcDistance, calcEmissions) {
+      var mode = 'bart';
+      var startLocation = startStation;
+      var endLocation = endStation;
+      var distance = calcDistance;
+      var emissions = calcEmissions;
+      var bart = this.store.createRecord('leg', {mode: mode, start_location: startLocation,
+        end_location: endLocation, distance: distance, emissions: emissions});
+      bart.save();
     }
   }
 });
