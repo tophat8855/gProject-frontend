@@ -20,6 +20,17 @@ export default Ember.Controller.extend({
 
         });
       });
+    },
+
+    saveBike: function(start, end, calcDistance, calcEmissions) {
+      var mode = 'bike';
+      var startLocation = start;
+      var endLocation = end;
+      var distance = calcDistance;
+      var emissions = calcEmissions;
+      var bike = this.store.createRecord('leg', {mode: mode, start_location: startLocation,
+        end_location: endLocation, distance: distance, emissions: emissions});
+      bike.save();
     }
   }
 });
