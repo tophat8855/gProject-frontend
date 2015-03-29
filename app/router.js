@@ -14,6 +14,7 @@ Router.map(function() {
     this.route('new');
   });
   this.resource('leg', function() {});
+  this.route('bus');
 });
 
 export default Router;

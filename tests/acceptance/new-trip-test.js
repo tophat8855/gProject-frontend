@@ -71,3 +71,22 @@ test('adding a bike leg', function(assert) {
   });
 
 });
+
+test('adding a bus leg', function(assert) {
+  visit('/trip/new');
+  click('#bus');
+
+  andThen(function() {
+    assert.equal(currentPath(), 'bus');
+    fillIn('#startAddress', '4000 San Pablo Ave, Emeryville');
+    fillIn('#endAddress', 'University Ave, San Pablo Ave, Berkeley, CA');
+    fillIn('#route', '72');
+    fillIn('#direction', 'N');
+    click('#calculate');
+  });
+
+  andThen(function() {
+    assert.equal($('.bike-miles').text().trim(), "Distance bused: 2 mi");
+  });
+
+});
