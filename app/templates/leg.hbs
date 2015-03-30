@@ -1,1 +1,11 @@
-{{outlet}}
+<h1>Your history</h1>
+
+<div class="">
+  <ul>
+    {{#each leg in model}}
+    <li>
+      {{leg.mode}} {{leg.start_location}} {{leg.end_location}}{{leg.distance}} {{leg.emissions}}
+    </li>
+    {{/each}}
+  </ul>
+</div>
