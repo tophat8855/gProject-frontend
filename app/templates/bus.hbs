@@ -39,13 +39,13 @@
     </div>
   </div>
 
-  <button class="btn btn-primary" id='calculate' {{action 'calculateBusMiles' startBus endBus}}>Calculate</button>
+  <button class="btn btn-primary" id='calculate' {{action 'calculateBusMiles' startBus endBus route selectedDirection}}>Calculate</button>
 </form>
 
 {{#if distance}}
 <div class="bus-miles">
-  Distance bused: {{distance}}
-  Emissions saved: {{emissions}}
+  Distance bused: {{distance}} miles.
+  Emissions saved: {{emissions}} pounds of CO2
 </div>
-<button class="btn btn-primary" id='saveBus' {{action 'saveBus' startBus endBus distance emissions route direction}}>Save bus leg</button>
+<button class="btn btn-primary" id='saveBus' {{action 'saveBus' startBus endBus route selectedDirection distance emissions}}>Save bus leg</button>
 {{/if}}

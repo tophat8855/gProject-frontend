@@ -21,12 +21,30 @@ export default Ember.Controller.extend({
       var emissions;
       var _this = this;
 
-      Ember.$.getJSON('http://localhost:300/bus?start=' + startBus + '&end=' + endBus + '&route=' + route + '&direction=' + direction).then(function (results) {
+      Ember.$.getJSON('http://localhost:3000/bus?start=' + startBus + '&end=' + endBus + '&route=' + route + '&direction=' + direction).then(function (results) {
         Ember.run(function() {
-          //distance = results
-          //add code here once you have the API returning the correct JSON
+          distance = results.bus[0].distance;
+          console.log(distance);
+          emissions = results.bus[0].emissions;
+          console.log(emissions);
+          _this.set('distance', distance);
+          _this.set('emissions', emissions);
         });
       });
+    },
+
+    saveBus: function(startBus, endBus, route, direction, calcDistance, calcEmissions) {
+      var mode = 'bus';
+      var startLocation = startBus;
+      var endLocation = endBus;
+      var busRoute = route;
+      var busDirection = direction;
+      var distance = calcDistance;
+      var emissions = calcEmissions;
+      var bus = this.store.createRecord('leg', {mode: mode, start_location: startLocation,
+        end_location: endLocation, route: busRoute, direction: busDirection,
+        distance: distance, emissions: emissions});
+      bus.save();
     }
   }
 });
