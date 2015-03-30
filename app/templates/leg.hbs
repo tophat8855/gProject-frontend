@@ -4,7 +4,11 @@
   <ul>
     {{#each leg in model}}
     <li>
-      {{leg.mode}} {{leg.start_location}} {{leg.end_location}}{{leg.distance}} {{leg.emissions}}
+      {{leg.mode}} {{leg.start_location}} {{leg.end_location}} {{leg.distance}} {{leg.emissions}}
+      <button type="button" class="btn btn-danger btn-sm" {{action 'deleteLeg' leg}}>
+        <span class="glyphicon glyphicon-remove"></span>
+    </button>
+
     </li>
     {{/each}}
   </ul>

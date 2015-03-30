@@ -7,5 +7,5 @@ export default DS.Model.extend({
   distance: DS.attr('string'),
   emissions: DS.attr('string'),
   route: DS.attr('string'),
-  direction: DS.attr('string')
+  direction: DS.attr('string'),
 });
