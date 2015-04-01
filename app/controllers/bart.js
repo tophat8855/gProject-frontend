@@ -78,6 +78,7 @@ export default Ember.Controller.extend({
       var bart = this.store.createRecord('leg', {mode: mode, start_location: startLocation,
         end_location: endLocation, distance: distance, emissions: emissions});
       bart.save();
+      this.transitionToRoute('leg');
     }
   }
 });

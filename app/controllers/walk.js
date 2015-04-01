@@ -33,6 +33,7 @@ export default Ember.Controller.extend({
       var walk = this.store.createRecord('leg', {mode: mode, start_location: startLocation,
         end_location: endLocation, distance: distance, emissions: emissions});
       walk.save();
+      this.transitionToRoute('leg');
     }
   }
 });

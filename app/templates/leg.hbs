@@ -1,15 +1,18 @@
 <h1>Your history</h1>
 
 <div class="">
-  <ul>
-    {{#each leg in model}}
-    <li>
-      {{leg.mode}} {{leg.start_location}} {{leg.end_location}} {{leg.distance}} {{leg.emissions}}
-      <button type="button" class="btn btn-danger btn-sm" {{action 'deleteLeg' leg}}>
-        <span class="glyphicon glyphicon-remove"></span>
-    </button>
+  {{#each leg in model}}
 
-    </li>
-    {{/each}}
-  </ul>
+  <div class="row">
+  <div class="col-md-1">{{leg.mode}}</div>
+  <div class="col-md-2"> {{leg.start_location}}</div>
+  <div class="col-md-2">{{leg.end_location}} </div>
+  <div class="col-md-1">{{leg.route}}</div>
+  <div class="col-md-1">{{leg.direction}}</div>
+  <div class="col-md-2"> {{leg.distance}} </div>
+  <div class="col-md-2">{{leg.emissions}}</div>
+  <div class="col-md-1"><i class="fa fa-minus-circle" {{action 'deleteLeg' leg}}></i></div>
+
+  {{/each}}
+
 </div>

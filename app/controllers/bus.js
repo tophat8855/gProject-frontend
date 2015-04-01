@@ -45,6 +45,7 @@ export default Ember.Controller.extend({
         end_location: endLocation, route: busRoute, direction: busDirection,
         distance: distance, emissions: emissions});
       bus.save();
+      this.transitionToRoute('leg');
     }
   }
 });
