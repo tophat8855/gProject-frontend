@@ -15,6 +15,10 @@ Router.map(function() {
   });
   this.resource('leg', function() {});
   this.route('bus');
+  this.resource("users", {path: '/users'}, function() {
+  });
+  this.resource('signup', {path: '/signup'}, function(){
+  });
 });
 
 export default Router;

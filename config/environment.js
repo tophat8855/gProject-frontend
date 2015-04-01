@@ -23,11 +23,21 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src': "'self'",
       'font-src': "'self'",
-      'connect-src': "'self'",
+      'connect-src': "'self' localhost:3000",
       'img-src': "'self'",
       'style-src': "'self' 'unsafe-inline'",
       'media-src': "'self'"
     },
+  };
+
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:devise',
+    routeAfterAuthentication: null
+  };
+
+  ENV['simple-auth-devise'] = {
+    crossOriginWhitelist: ['*'],
+    identificationAttributeName: 'email'
   };
 
   if (environment === 'development') {
