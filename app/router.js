@@ -19,6 +19,7 @@ Router.map(function() {
   });
   this.resource('signup', {path: '/signup'}, function(){
   });
+  this.route('login');
 });
 
 export default Router;

@@ -8,4 +8,6 @@ export default DS.Model.extend({
   emissions: DS.attr('string'),
   route: DS.attr('string'),
   direction: DS.attr('string'),
+  trip_id: DS.attr('number'),
+  user_id: DS.attr('number')
 });
