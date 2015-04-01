@@ -1,13 +1,10 @@
-<form class="" {{action 'authenticate' on='submit'}}>
-  <div class="form-group">
-    {{input value=identification placeholder='email'}}
-  </div>
+<div class="wrapper">
+  <form class="form-signin" {{action 'authenticate' on='submit'}}>
+    <h2 class="form-signin-heading">Please login</h2>
+    {{input value=identification placeholder='email' class="form-control"}}
 
-  <div class="form-group">
-    {{input value=password placeholder='password' type='password'}}
-  </div>
+    {{input value=password placeholder='password' type='password' class="form-control"}}
 
-  <div class="form-group">
-    <button type="submit" {{action 'authenticate' on='submit'}}>Login</button>
-  </div>
-</form>
+    <button class="btn btn-lg btn-primary " type="submit">Login</button>
+  </form>
+</div>

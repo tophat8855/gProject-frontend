@@ -3,10 +3,7 @@
 <form class="">
   <div class="form-group">
     <span class="label label-default">Route</span>
-
-    <div class="form-control" placeholder="Route">
-      {{input id='route' value=route}}
-    </div>
+    {{input id='route' value=route placeholder='route' class='form-control'}}
   </div>
 
   <div class="form-group">
@@ -25,18 +22,12 @@
 
   <div class="form-group">
     <span class="label label-default">Starting address</span>
-
-    <div class="form-control" placeholder="starting address">
-      {{input id='startAddress' value=startBus}}
-    </div>
+    {{input id='startAddress' value=startBus placeholder='starting address' class='form-control'}}
   </div>
 
   <div class="form-group">
     <span class="label label-default">Ending address</span>
-
-    <div type="text" class="form-control" placeholder="ending address">
-      {{input id='endAddress' value=endBus}}
-    </div>
+    {{input id='endAddress' value=endBus placeholder='ending address' class='form-control'}}
   </div>
 
   <button class="btn btn-primary" id='calculate' {{action 'calculateBusMiles' startBus endBus route selectedDirection}}>Calculate</button>

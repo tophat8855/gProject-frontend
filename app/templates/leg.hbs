@@ -3,7 +3,6 @@
 <div class="">
   <ul>
     {{#each leg in model}}
-    {{#if currentUser }}
     <li>
       {{leg.mode}} {{leg.start_location}} {{leg.end_location}} {{leg.distance}} {{leg.emissions}}
       <button type="button" class="btn btn-danger btn-sm" {{action 'deleteLeg' leg}}>
@@ -11,7 +10,6 @@
     </button>
 
     </li>
-    {{/if}}
     {{/each}}
   </ul>
 </div>

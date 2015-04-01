@@ -1,6 +1,10 @@
-<div class="form-group">
-  {{input placeholder="Email" type="text" value=email}}
-  {{input placeholder="Password" type="text" value=password}}
+<div class="wrapper">
+  <form class="form-signup" {{action 'signUp' on='submit'}}>
+    <h2 class="form-signin-heading">Sign Up</h2>
+    {{input value=email placeholder='email' class="form-control"}}
 
-  <button class="button button-primary button-lg button-block"{{action 'signUp'}}>Sign Up</button>
+    {{input value=password placeholder='password' type='password' class="form-control"}}
+
+    <button class="btn btn-lg btn-primary " type="submit">Sign Up</button>
+  </form>
 </div>

@@ -1,17 +1,17 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <span class="text-center">{{#link-to 'index'}}Home{{/link-to}}</span>
-      <span class="text-center">{{#link-to 'about'}}About{{/link-to}}</span>
-      <span class="text-center">{{#link-to 'trip.new'}}New Trip{{/link-to}}</span>
+      <span class="text-center">{{#link-to 'index'}}<i class="fa fa-home fa-lg"></i></span> Home{{/link-to}}</span>
+      <span class="text-center">{{#link-to 'about'}}<i class="fa fa-info fa-lg"></i></span> About{{/link-to}}</span>
+      <span class="text-center">{{#link-to 'trip.new'}}<i class="fa fa-plus fa-lg"></i> New Trip{{/link-to}}</span>
 
       {{#if session.isAuthenticated}}
-      <span class="text-center">{{#link-to 'leg'}}Your History{{/link-to}}</span>
+      <span class="text-center">{{#link-to 'leg'}}<i class="fa fa-history fa-lg"></i> Your History{{/link-to}}</span>
 
-      <span class="text-center"><a {{action 'invalidateSession'}}>Log Out</a></span>
+      <span class="text-center"><a {{action 'invalidateSession'}}><i class="fa fa-sign-out fa-lg"></i> Log Out</a></span>
       {{else}}
-      <span class="text-center">{{#link-to 'signup'}}Sign up{{/link-to}}</span>
-      <span class="text-center">{{#link-to 'login'}}Log In{{/link-to}}</span>
+      <span class="text-center">{{#link-to 'signup'}}<i class="fa fa-sign-in fa-lg"></i> Sign up{{/link-to}}</span>
+      <span class="text-center">{{#link-to 'login'}}<i class="fa fa-sign-in fa-lg"></i> Log In{{/link-to}}</span>
       {{/if}}
     </div>
   </div>

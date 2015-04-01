@@ -3,18 +3,12 @@
 <form class="">
   <div class="form-group">
     <span class="label label-default">Starting address</span>
-
-    <div class="form-control" placeholder="starting address">
-      {{input id='startAddress' value=startBike}}
-    </div>
+    {{input id='startAddress' value=startBike placeholder="starting address" class='form-control'}}
   </div>
 
   <div class="form-group">
     <span class="label label-default">Ending address</span>
-
-    <div type="text" class="form-control" placeholder="ending address">
-      {{input id='endAddress' value=endBike}}
-    </div>
+    {{input id='endAddress' value=endBike placeholder='ending address' class='form-control'}}
   </div>
 
   <button class="btn btn-primary" id='calculate' {{action 'calculateBikeMiles' startBike endBike}}>Calculate</button>

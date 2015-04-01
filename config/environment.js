@@ -32,7 +32,7 @@ module.exports = function(environment) {
 
   ENV['simple-auth'] = {
     authorizer: 'simple-auth-authorizer:devise',
-    routeAfterAuthentication: null
+    routeAfterAuthentication: 'leg'
   };
 
   ENV['simple-auth-devise'] = {
