@@ -28,17 +28,16 @@ module.exports = function(environment) {
       'style-src': "'self' 'unsafe-inline'",
       'media-src': "'self'"
     },
-  };
 
-  ENV['simple-auth'] = {
-    authorizer: 'simple-auth-authorizer:devise',
-    routeAfterAuthentication: 'leg',
-    crossOriginWhitelist: ['*']
+    'simple-auth': {
+      authorizer: 'simple-auth-authorizer:devise',
+      routeAfterAuthentication: 'leg',
+      crossOriginWhitelist: ['*']
+    },
 
-  };
-
-  ENV['simple-auth-devise'] = {
-    identificationAttributeName: 'email'
+    'simple-auth-devise': {
+      identificationAttributeName: 'email'
+    }
   };
 
   if (environment === 'development') {
