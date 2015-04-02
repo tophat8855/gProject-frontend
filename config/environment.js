@@ -32,11 +32,12 @@ module.exports = function(environment) {
 
   ENV['simple-auth'] = {
     authorizer: 'simple-auth-authorizer:devise',
-    routeAfterAuthentication: 'leg'
+    routeAfterAuthentication: 'leg',
+    crossOriginWhitelist: ['*']
+
   };
 
   ENV['simple-auth-devise'] = {
-    crossOriginWhitelist: ['*'],
     identificationAttributeName: 'email'
   };
 
