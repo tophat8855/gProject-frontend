@@ -14,7 +14,7 @@ export default Ember.Controller.extend({
   totalBike: Ember.computed.sum('bikeMiles'),
 
   busSegments: Ember.computed.filterBy('model', 'modeIsBus'),
-  busMiles: Ember.computed.mapBy('busSegments', 'distance'), //for total mapBy('model', 'distance')
+  busMiles: Ember.computed.mapBy('busSegments', 'distance'),
   busEms: Ember.computed.mapBy('busSegments', 'emissions'),
   totalBusEms: Ember.computed.sum('busEms'),
   totalBus: Ember.computed.sum('busMiles'),
@@ -40,4 +40,78 @@ export default Ember.Controller.extend({
       });
     }
   },
+
+  milesChartData: function() {
+    var walk = this.get('totalWalk');
+    var bike = this.get('totalBike');
+    var bus = this.get('totalBus');
+    var bart = this.get('totalBART');
+
+    var data = [
+    {
+      value: walk,
+      color:"#F7464A",
+      highlight: "#FF5A5E",
+      label: "Walk"
+    },
+    {
+      value: bike,
+      color: "#46BFBD",
+      highlight: "#5AD3D1",
+      label: "Bike"
+    },
+    {
+      value: bus,
+      color: "#FDB45C",
+      highlight: "#FFC870",
+      label: "Bus"
+    },
+    {
+      value: bart,
+      color:"#949FB1",
+      highlight: "#A8B3C5",
+      label: "BART"
+    },
+  ];
+    return data;
+  }.property('miles'),
+
+  emissionsChartData: function() {
+    var walk = this.get('totalWalkEms');
+    console.log(walk);
+    var bike = this.get('totalBikeEms');
+    console.log(bike);
+    var bus = this.get('totalBusEms');
+    console.log(bus);
+    var bart = this.get('totalBartEms');
+    console.log(bart);
+
+    var emdata = [
+    {
+      value: walk,
+      color:"#F7464A",
+      highlight: "#FF5A5E",
+      label: "Walk"
+    },
+    {
+      value: bike,
+      color: "#46BFBD",
+      highlight: "#5AD3D1",
+      label: "Bike"
+    },
+    {
+      value: bus,
+      color: "#FDB45C",
+      highlight: "#FFC870",
+      label: "Bus"
+    },
+    {
+      value: bart,
+      color:"#949FB1",
+      highlight: "#A8B3C5",
+      label: "BART"
+    },
+  ];
+    return emdata;
+  }.property('ems')
 });

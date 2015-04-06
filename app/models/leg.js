@@ -27,5 +27,6 @@ export default DS.Model.extend({
 
   modeIsBART: function() {
     return this.get('mode') === 'bart';
-  }.property('mode'),
+  }.property('mode')
+
 });

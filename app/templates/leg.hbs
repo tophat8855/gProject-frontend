@@ -4,6 +4,10 @@
       <h2>Trip History</h2>
     </header>
 
+    <p>
+      Distances are in miles. Emissions are in pounds of CO2.
+    </p>
+
     <table class="table_Trips">
       <tr>
         <th><strong>Date</strong></th>
@@ -44,30 +48,20 @@
       {{/each}}
     </table>
 
-    <p>
-      Walk Miles: {{totalWalk}}
-      Walking Emissions Saved: {{totalWalkEms}}
-    </p>
+    <div class="row 50%">
+      <div class="6u">
+        <p>
+          Total Miles: {{totalMiles}}
+        </p>
+        {{ember-chart type='Pie' data=milesChartData width=400 height=400 legend=false}}
+      </div>
 
-    <p>
-      Bike Miles: {{totalBike}}
-      Bike Emissions Saved: {{totalBikeEms}}
-    </p>
-
-    <p>
-      Bus Miles: {{totalBus}}
-      Busing Emissions Saved: {{totalBusEms}}
-    </p>
-
-    <p>
-      BART Miles: {{totalBART}}
-      BART Emissions Saved: {{totalBartEms}}
-    </p>
-
-    <p>
-      Total Miles: {{totalMiles}}
-      Total Emissions Saved: {{totalEmissions}}
-    </p>
-
+      <div class="6u">
+        <p>
+          Total Emissions Saved: {{formatted-emissions totalEmissions}}
+        </p>
+        {{ember-chart type='Pie' data=emissionsChartData width=400 height=400 legend=false}}
+      </div>
+    </div>
   </div>
 </section>
