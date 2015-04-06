@@ -1,49 +1,73 @@
-<h1>Your history</h1>
+<section id="portfolio" class="two">
+  <div class="container">
+    <header>
+      <h2>Trip History</h2>
+    </header>
 
+    <table class="table_Trips">
+      <tr>
+        <th>Date</th>
+        <th>Mode</th>
+        <th>Miles</th>
+        <th>Emissions Saved</th>
+        <th>Start</th>
+        <th>End</th>
+        <th></th>
+      </tr>
 
-<table class="table_Trips">
-  <tr>
-    <th>Date</th>
-    <th>Mode</th>
-    <th>Miles</th>
-    <th>Emissions Saved</th>
-    <th>Start</th>
-    <th>End</th>
-    <th></th>
-  </tr>
+      {{#each leg in model}}
+      <tr>
+        <td>{{leg.created_at}}</td>
+        <td>
+          {{#if leg.modeIsWalk}}
+            <i class="fa fa-child"></i>
+          {{/if}}
 
-  {{#each leg in model}}
-  <tr>
-    <td>{{leg.created_at}}</td>
-    <td>
-      {{#if leg.modeIsWalk}}
-        <i class="fa fa-child"></i>
-      {{/if}}
+          {{#if leg.modeIsBike}}
+            <i class="fa fa-bicycle"></i>
+          {{/if}}
 
-      {{#if leg.modeIsBike}}
-        <i class="fa fa-bicycle"></i>
-      {{/if}}
+          {{#if leg.modeIsBus}}
+            <i class="fa fa-bus"></i>
+          {{/if}}
 
-      {{#if leg.modeIsBus}}
-        <i class="fa fa-bus"></i>
-      {{/if}}
+          {{#if leg.modeIsBART}}
+            <i class="fa fa-subway"></i>
+          {{/if}}
+        </td>
+        <td>{{leg.distance}}</td>
+        <td>{{leg.emissions}}</td>
+        <td>{{leg.start_location}}</td>
+        <td>{{leg.end_location}}</td>
+        <td><i class="fa fa-minus-circle" {{action 'deleteLeg' leg}}></i></td>
+      </tr>
+      {{/each}}
+    </table>
 
-      {{#if leg.modeIsBART}}
-        <i class="fa fa-subway"></i>
-      {{/if}}
-    </td>
-    <td>{{leg.distance}}</td>
-    <td>{{leg.emissions}}</td>
-    <td>{{leg.start_location}}</td>
-    <td>{{leg.end_location}}</td>
-    <td><i class="fa fa-minus-circle" {{action 'deleteLeg' leg}}></i></td>
-  </tr>
-  {{/each}}
-</table>
+    <p>
+      Walk Miles: {{totalWalk}}
+      Walking Emissions Saved: {{totalWalkEms}}
+    </p>
 
-Bike Miles: {{totalBike}}
-Bike Emissions Saved: {{totalBikeEms}}
+    <p>
+      Bike Miles: {{totalBike}}
+      Bike Emissions Saved: {{totalBikeEms}}
+    </p>
 
+    <p>
+      Bus Miles: {{totalBus}}
+      Busing Emissions Saved: {{totalBusEms}}
+    </p>
 
-Total Miles: {{totalMiles}}
-Total Emissions Saved: {{totalEmissions}}
+    <p>
+      BART Miles: {{totalBART}}
+      BART Emissions Saved: {{totalBartEms}}
+    </p>
+
+    <p>
+      Total Miles: {{totalMiles}}
+      Total Emissions Saved: {{totalEmissions}}
+    </p>
+
+  </div>
+</section>
