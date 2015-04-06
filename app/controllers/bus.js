@@ -25,7 +25,7 @@ export default Ember.Controller.extend({
         Ember.run(function() {
           distance = results.bus[0].distance;
           console.log(distance);
-          emissions = results.bus[0].emissions.concat(' pounds of CO2');
+          emissions = results.bus[0].emissions//.concat(' pounds of CO2');
           console.log(emissions);
           _this.set('distance', distance);
           _this.set('emissions', emissions);

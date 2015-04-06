@@ -6,18 +6,18 @@
 
     <table class="table_Trips">
       <tr>
-        <th>Date</th>
-        <th>Mode</th>
-        <th>Miles</th>
-        <th>Emissions Saved</th>
-        <th>Start</th>
-        <th>End</th>
+        <th><strong>Date</strong></th>
+        <th><strong>Mode</strong></th>
+        <th><strong>Miles</strong></th>
+        <th><strong>Emissions Saved</strong></th>
+        <th><strong>Start</strong></th>
+        <th><strong>End</strong></th>
         <th></th>
       </tr>
 
       {{#each leg in model}}
       <tr>
-        <td>{{leg.created_at}}</td>
+        <td>{{formatted-date leg.created_at 'MMMM Do, YYYY'}}</td>
         <td>
           {{#if leg.modeIsWalk}}
             <i class="fa fa-child"></i>

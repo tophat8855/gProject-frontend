@@ -14,8 +14,8 @@ export default Ember.Controller.extend({
         Ember.run(function() {
           distance = results["distance"]["text"];
           var floatDistance = parseFloat(distance);
-          emissions = (floatDistance * 0.887).toFixed(2).concat(' pounds of CO2');
-          _this.set('distance', distance);
+          emissions = (floatDistance * 0.887).toFixed(2);//.concat(' pounds of CO2');
+          _this.set('distance', floatDistance);
           _this.set('emissions', emissions);
 
         });
@@ -27,7 +27,9 @@ export default Ember.Controller.extend({
       var startLocation = start;
       var endLocation = end;
       var distance = calcDistance;
+      console.log(distance);
       var emissions = calcEmissions;
+      console.log(emissions);
       var bike = this.store.createRecord('leg', {mode: mode, start_location: startLocation,
         end_location: endLocation, distance: distance, emissions: emissions});
       bike.save();
