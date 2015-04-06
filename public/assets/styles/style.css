@@ -601,10 +601,15 @@
 		{
 			position: relative;
 			display: block;
-			font-size: 0.6em;
+			font-size: 0.8em;
 			color: rgba(255,255,255,0.5);
 			line-height: 1.25em;
 			margin: 0.5em 0 0 0;
+
+		}
+
+		#logo p strong {
+			color: #e27689;
 		}
 
 		#logo .image
