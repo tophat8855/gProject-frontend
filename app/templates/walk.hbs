@@ -1,32 +1,35 @@
-<h3>Walking</h3>
+<section id="contact" class="four">
+  <div class="container">
+    <header>
+      <h2>Walking</h2>
+    </header>
 
-<section class="content bgcolor-3">
+    <form method="post">
+      <div class="row 50%">
+        <div class="6u">
+          {{input id='startAddress' value=startWalk  type="text" placeholder="Starting address"}}
+        </div>
 
-  <span class="input input--kohana">
-    {{input id='startAddress' value=startWalk class='input__field input__field--kohana' type="text"}}
-    <label class="input__label input__label--kohana" for="startAddress">
-      <i class="fa fa-fw fa-flag icon icon--kohana"></i>
-      <span class="input__label-content input__label-content--kohana">Starting Address</span>
-    </label>
-  </span>
+        <div class="6u">
+          {{input id='endAddress' value=endWalk type="text" placeholder="Ending address"}}
+        </div>
+      </div>
 
-  <span class="input input--kohana">
-    {{input id='endAddress' value=endWalk class='input__field input__field--kohana' type="text"}}
-    <label class="input__label input__label--kohana" for="startAddress">
-      <i class="fa fa-fw fa-flag-checkered icon icon--kohana"></i>
-      <span class="input__label-content input__label-content--kohana">Ending Address</span>
-    </label>
-  </span>
+      <div class="row">
+        <div class="12u">
+          <input type="submit" id='calculate' {{action 'calculateWalkMiles' startWalk endWalk}}/>
+        </div>
+      </div>
+    </form>
 
-  <button class="btn btn-primary" id='calculate' {{action 'calculateWalkMiles' startWalk endWalk}}>Calculate</button>
+    {{#if distance}}
+      <p class="walk-miles">
+        Distance walked: {{distance}} miles
+        Emissions saved by walking: {{emissions}} pounds of CO2
+      </p>
 
-  {{#if distance}}
-    <div class="walk-miles">
-      Distance walked: {{distance}}
-      Emissions walked: {{emissions}}
-    </div>
+      <input type="submit" value="Save Trip" id='saveWalk' {{action 'saveWalk' startWalk endWalk distance emissions}}/>
+    {{/if}}
 
-    <button class="btn btn-primary" id='saveWalk' {{action 'saveWalk' startWalk endWalk distance emissions}}>Save walk leg</button>
-  {{/if}}
-
+  </div>
 </section>

@@ -1,42 +1,53 @@
-<h3>Busing</h3>
+<section id="contact" class="four">
+  <div class="container">
+    <header>
+      <h2>Bus</h2>
+    </header>
 
-<form class="">
-  <div class="form-group">
-    <span class="label label-default">Route</span>
-    {{input id='route' value=route placeholder='route' class='form-control'}}
+    <form method="post">
+      <div class="row 50%">
+        <div class="6u">
+          {{input id='route' value=route placeholder='Route' type="text"}}
+        </div>
+
+        <div class="6u">
+          <div name="direction">
+            {{view 'select'
+              placeholder="direction"
+              id='direction'
+              content=directions
+              value=selectedDirection
+              optionValuePath="content.id"
+              optionLabelPath="content.lengthyDirection"
+              selectionBinding="content.selectedObject"}}
+          </div>
+        </div>
+      </div>
+
+      <div class="row 50%">
+        <div class="6u">
+          {{input id='startAddress' value=startBus placeholder="Starting address" type="text"}}
+        </div>
+
+        <div class="6u">
+          {{input id='endAddress' value=endBus type="text" placeholder="Ending address"}}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="12u">
+          <input type="submit" id='calculate' {{action 'calculateBusMiles' startBus endBus route selectedDirection}}/>
+        </div>
+      </div>
+    </form>
+
+    {{#if distance}}
+      <p class="bike-miles">
+        Distance bused: {{distance}} miles
+        Emissions saved by busing: {{emissions}} pounds of CO2
+      </p>
+
+      <input type="submit" value="Save Trip" id='saveBus' {{action 'saveBus' startBus endBus route selectedDirection distance emissions}}/>
+    {{/if}}
   </div>
-
-  <div class="form-group">
-    <span class="label label-default">Direction</span>
-
-    <div name="direction">
-      {{view 'select'
-        id='direction'
-        content=directions
-        value=selectedDirection
-        optionValuePath="content.id"
-        optionLabelPath="content.lengthyDirection"
-        selectionBinding="content.selectedObject"}}
-    </div>
-  </div>
-
-  <div class="form-group">
-    <span class="label label-default">Starting address</span>
-    {{input id='startAddress' value=startBus placeholder='starting address' class='form-control'}}
-  </div>
-
-  <div class="form-group">
-    <span class="label label-default">Ending address</span>
-    {{input id='endAddress' value=endBus placeholder='ending address' class='form-control'}}
-  </div>
-
-  <button class="btn btn-primary" id='calculate' {{action 'calculateBusMiles' startBus endBus route selectedDirection}}>Calculate</button>
-</form>
-
-{{#if distance}}
-<div class="bus-miles">
-  Distance bused: {{distance}} miles.
-  Emissions saved: {{emissions}} pounds of CO2
-</div>
-<button class="btn btn-primary" id='saveBus' {{action 'saveBus' startBus endBus route selectedDirection distance emissions}}>Save bus leg</button>
-{{/if}}
+</section>

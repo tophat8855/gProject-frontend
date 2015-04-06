@@ -1,39 +1,54 @@
-<form class="">
-  <div class="form-group">
-    <span class="label label-default">Starting BART Station</span>
+<section id="contact" class="four">
+  <div class="container">
+    <header>
+      <h2>BART</h2>
+    </header>
 
-    <div name="start">
-      {{view 'select'
-        id='startBART'
-        content=stations
-        value=selectedStartStation
-        optionValuePath="content.id"
-        optionLabelPath="content.stationName"
-        selectionBinding="content.selectedObject"}}
-    </div>
+    <form method="post">
+      <div class="row 50%">
+        <div class="6u">
+          <label>Starting BART Station</label>
+
+          <div name="start">
+            {{view 'select'
+              id='startBART'
+              content=stations
+              value=selectedStartStation
+              optionValuePath="content.id"
+              optionLabelPath="content.stationName"
+              selectionBinding="content.selectedObject"}}
+          </div>
+        </div>
+
+        <div class="6u">
+          <label>Ending BART Station</label>
+
+          <div name="end">
+            {{view 'select'
+              id='endBART'
+              content=stations
+              value=selectedEndStation
+              optionValuePath="content.id"
+              optionLabelPath="content.stationName"
+              selectionBinding="content.selectedObject"}}
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="12u">
+          <input type="submit" id='calculate' {{action 'calculateBartMiles' selectedStartStation selectedEndStation}}/>
+        </div>
+      </div>
+    </form>
+
+    {{#if distance}}
+      <p class="bart-miles">
+        Distance BARTed: {{distance}} miles
+        Emissions saved by BARTing: {{emissions}} pounds of CO2
+      </p>
+
+      <input type="submit" value="Save Trip" id='saveBart' {{action 'saveBART' selectedStartStation selectedEndStation distance emissions}}/>
+    {{/if}}
   </div>
-
-  <div class="form-group">
-    <span class="label label-default">Ending BART Station</span>
-
-    <div name="end">
-      {{view 'select'
-        id='endBART'
-        content=stations
-        value=selectedEndStation
-        optionValuePath="content.id"
-        optionLabelPath="content.stationName"
-        selectionBinding="content.selectedObject"}}
-    </div>
-  </div>
-
-  <button class="btn btn-primary" id='calculate' {{action 'calculateBartMiles' selectedStartStation selectedEndStation}}>Calculate</button>
-
-</form>
-
-{{#if distance}}
-<div class="bart-miles">
-  Distance between stations: {{distance}} miles. Emissions saved: {{emissions}} pounds of CO2
-</div>
-<button class="btn btn-primary" id='saveBart' {{action 'saveBART' selectedStartStation selectedEndStation distance emissions}}>Save BART leg</button>
-{{/if}}
+</section>

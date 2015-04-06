@@ -75,7 +75,7 @@ export default Ember.Controller.extend({
       var startLocation = this.getStationName(startStation);
       var endLocation = this.getStationName(endStation);
       var distance = calcDistance;
-      var emissions = calcEmissions.concat(' pounds of CO2');
+      var emissions = calcEmissions;
       var bart = this.store.createRecord('leg', {mode: mode, start_location: startLocation,
         end_location: endLocation, distance: distance, emissions: emissions});
       bart.save();

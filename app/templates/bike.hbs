@@ -1,32 +1,34 @@
-<h3>Biking</h3>
+<section id="contact" class="four">
+  <div class="container">
+    <header>
+      <h2>Biking</h2>
+    </header>
 
-<section class="content bgcolor-3">
+    <form method="post">
+      <div class="row 50%">
+        <div class="6u">
+          {{input id='startAddress' value=startBike  type="text" placeholder="Starting address"}}
+        </div>
 
-  <span class="input input--kohana">
-    {{input id='startAddress' value=startBike class='input__field input__field--kohana' type="text"}}
-    <label class="input__label input__label--kohana" for="startAddress">
-      <i class="fa fa-fw fa-bicycle icon icon--kohana"></i>
-      <span class="input__label-content input__label-content--kohana">Starting Address</span>
-    </label>
-  </span>
+        <div class="6u">
+          {{input id='endAddress' value=endBike type="text" placeholder="Ending address"}}
+        </div>
+      </div>
 
-  <span class="input input--kohana">
-    {{input id='endAddress' value=endBike class='input__field input__field--kohana' type="text"}}
-    <label class="input__label input__label--kohana" for="startAddress">
-      <i class="fa fa-fw fa-flag-checkered icon icon--kohana"></i>
-      <span class="input__label-content input__label-content--kohana">Ending Address</span>
-    </label>
-  </span>
+      <div class="row">
+        <div class="12u">
+          <input type="submit" id='calculate' {{action 'calculateBikeMiles' startBike endBike}}/>
+        </div>
+      </div>
+    </form>
 
-  <button class="btn btn-primary" id='calculate' {{action 'calculateBikeMiles' startBike endBike}}>Calculate</button>
+    {{#if distance}}
+      <p class="bike-miles">
+        Distance biked: {{distance}} miles
+        Emissions saved by biking: {{emissions}} pounds of CO2
+      </p>
 
-  {{#if distance}}
-    <div class="bike-miles">
-      Distance biked: {{distance}}
-      Emissions saved: {{emissions}}
-    </div>
-
-    <button class="btn btn-primary" id='saveBike' {{action 'saveBike' startBike endBike distance emissions}}>Save bike leg</button>
-  {{/if}}
-
+      <input type="submit" value="Save Trip" id='saveBike' {{action 'saveBike' startBike endBike distance emissions}}/>
+    {{/if}}
+  </div>
 </section>

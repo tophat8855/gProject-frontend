@@ -7,7 +7,7 @@ export default Ember.Controller.extend({
   direction: null,
   result: '',
   directions: [
-    {lengthyDirection: "", id: ""},
+    {lengthyDirection: "Direction", id: ""},
     {lengthyDirection: "North", id: "N"},
     {lengthyDirection: "South", id: "S"},
     {lengthyDirection: "East", id: "E"},
