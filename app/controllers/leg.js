@@ -78,13 +78,9 @@ export default Ember.Controller.extend({
 
   emissionsChartData: function() {
     var walk = this.get('totalWalkEms');
-    console.log(walk);
     var bike = this.get('totalBikeEms');
-    console.log(bike);
     var bus = this.get('totalBusEms');
-    console.log(bus);
     var bart = this.get('totalBartEms');
-    console.log(bart);
 
     var emdata = [
     {
