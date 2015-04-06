@@ -9,13 +9,20 @@
 
     {{content-for 'head'}}
 
+    <link rel="stylesheet" href="assets/styles/skel.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+
     <link rel="stylesheet" href="assets/vendor.css">
+
     <link rel="stylesheet" href="assets/g-project-frontend.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     {{content-for 'head-footer'}}
   </head>
   <body>
-    {{content-for 'body'}}
+
+    <div class="container">
+      {{content-for 'body'}}
+    </div>
 
     <script src="assets/vendor.js"></script>
     <script src="assets/g-project-frontend.js"></script>

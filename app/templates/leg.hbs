@@ -1,18 +1,49 @@
 <h1>Your history</h1>
 
-<div class="">
+
+<table class="table_Trips">
+  <tr>
+    <th>Date</th>
+    <th>Mode</th>
+    <th>Miles</th>
+    <th>Emissions Saved</th>
+    <th>Start</th>
+    <th>End</th>
+    <th></th>
+  </tr>
+
   {{#each leg in model}}
+  <tr>
+    <td>{{leg.created_at}}</td>
+    <td>
+      {{#if leg.modeIsWalk}}
+        <i class="fa fa-child"></i>
+      {{/if}}
 
-  <div class="row">
-  <div class="col-md-1">{{leg.mode}}</div>
-  <div class="col-md-2"> {{leg.start_location}}</div>
-  <div class="col-md-2">{{leg.end_location}} </div>
-  <div class="col-md-1">{{leg.route}}</div>
-  <div class="col-md-1">{{leg.direction}}</div>
-  <div class="col-md-2"> {{leg.distance}} </div>
-  <div class="col-md-2">{{leg.emissions}}</div>
-  <div class="col-md-1"><i class="fa fa-minus-circle" {{action 'deleteLeg' leg}}></i></div>
+      {{#if leg.modeIsBike}}
+        <i class="fa fa-bicycle"></i>
+      {{/if}}
 
+      {{#if leg.modeIsBus}}
+        <i class="fa fa-bus"></i>
+      {{/if}}
+
+      {{#if leg.modeIsBART}}
+        <i class="fa fa-subway"></i>
+      {{/if}}
+    </td>
+    <td>{{leg.distance}}</td>
+    <td>{{leg.emissions}}</td>
+    <td>{{leg.start_location}}</td>
+    <td>{{leg.end_location}}</td>
+    <td><i class="fa fa-minus-circle" {{action 'deleteLeg' leg}}></i></td>
+  </tr>
   {{/each}}
+</table>
 
-</div>
+Bike Miles: {{totalBike}}
+Bike Emissions Saved: {{totalBikeEms}}
+
+
+Total Miles: {{totalMiles}}
+Total Emissions Saved: {{totalEmissions}}

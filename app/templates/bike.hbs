@@ -1,23 +1,32 @@
 <h3>Biking</h3>
 
-<form class="">
-  <div class="form-group">
-    <span class="label label-default">Starting address</span>
-    {{input id='startAddress' value=startBike placeholder="starting address" class='form-control'}}
-  </div>
+<section class="content bgcolor-3">
 
-  <div class="form-group">
-    <span class="label label-default">Ending address</span>
-    {{input id='endAddress' value=endBike placeholder='ending address' class='form-control'}}
-  </div>
+  <span class="input input--kohana">
+    {{input id='startAddress' value=startBike class='input__field input__field--kohana' type="text"}}
+    <label class="input__label input__label--kohana" for="startAddress">
+      <i class="fa fa-fw fa-bicycle icon icon--kohana"></i>
+      <span class="input__label-content input__label-content--kohana">Starting Address</span>
+    </label>
+  </span>
+
+  <span class="input input--kohana">
+    {{input id='endAddress' value=endBike class='input__field input__field--kohana' type="text"}}
+    <label class="input__label input__label--kohana" for="startAddress">
+      <i class="fa fa-fw fa-flag-checkered icon icon--kohana"></i>
+      <span class="input__label-content input__label-content--kohana">Ending Address</span>
+    </label>
+  </span>
 
   <button class="btn btn-primary" id='calculate' {{action 'calculateBikeMiles' startBike endBike}}>Calculate</button>
-</form>
 
-{{#if distance}}
-<div class="bike-miles">
-  Distance biked: {{distance}}
-  Emissions saved: {{emissions}}
-</div>
-<button class="btn btn-primary" id='saveBike' {{action 'saveBike' startBike endBike distance emissions}}>Save bike leg</button>
-{{/if}}
+  {{#if distance}}
+    <div class="bike-miles">
+      Distance biked: {{distance}}
+      Emissions saved: {{emissions}}
+    </div>
+
+    <button class="btn btn-primary" id='saveBike' {{action 'saveBike' startBike endBike distance emissions}}>Save bike leg</button>
+  {{/if}}
+
+</section>

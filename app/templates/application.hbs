@@ -1,20 +1,62 @@
-<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <span class="text-center">{{#link-to 'index'}}<i class="fa fa-home fa-lg"></i></span> Home{{/link-to}}</span>
-      <span class="text-center">{{#link-to 'about'}}<i class="fa fa-info fa-lg"></i></span> About{{/link-to}}</span>
-      <span class="text-center">{{#link-to 'trip.new'}}<i class="fa fa-plus fa-lg"></i> New Trip{{/link-to}}</span>
+<div id="header">
 
-      {{#if session.isAuthenticated}}
-      <span class="text-center">{{#link-to 'leg'}}<i class="fa fa-history fa-lg"></i> Your History{{/link-to}}</span>
-
-      <span class="text-center"><a {{action 'invalidateSession'}}><i class="fa fa-sign-out fa-lg"></i> Log Out</a></span>
-      {{else}}
-      <span class="text-center">{{#link-to 'signup'}}<i class="fa fa-sign-in fa-lg"></i> Sign up{{/link-to}}</span>
-      <span class="text-center">{{#link-to 'login'}}<i class="fa fa-sign-in fa-lg"></i> Log In{{/link-to}}</span>
-      {{/if}}
+  <div class="top">
+    <div id="logo">
+      <h1 id="title">Carfree</h1>
+      <p>
+        Commute without the Carbon
+      </p>
     </div>
-  </div>
-</nav>
 
+    <nav id="nav">
+      <ul>
+        <li>
+          {{#link-to 'leg' title="Your History"}}
+            <span class="icon fa-history">Your History</span>
+          {{/link-to}}
+        </li>
+
+        <li>
+          {{#link-to 'walk' id="walk"}}
+            <span class="icon fa-child">WALK</span>
+          {{/link-to}}
+        </li>
+
+        <li>
+          {{#link-to 'bike' id="bike"}}
+            <span class="icon fa-bicycle">BIKE</span>
+          {{/link-to}}
+        </li>
+
+        <li>
+          {{#link-to 'bus' id="bus"}}
+            <span class="icon fa-bus">BUS</span>
+          {{/link-to}}
+        </li>
+
+        <li>
+          {{#link-to 'bart' id="bart"}}
+            <span class="icon fa-subway">BART</span>
+          {{/link-to}}
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="bottom">
+    <ul class="icons">
+      <li>{{#link-to 'index' class="fa fa-home fa-lg" title="Home"}}{{/link-to}}</li>
+      <li>{{#link-to 'about' class="fa fa-info fa-lg" title="About"}}{{/link-to}}</li>
+      {{#if session.isAuthenticated}}
+        <li><a class="fa fa-sign-out fa-lg" {{action 'invalidateSession'}}></a></li>
+      {{else}}
+        <li>{{#link-to 'signup' class="fa fa-plus fa-lg" title="Sign up"}}{{/link-to}}</li>
+        <li>{{#link-to 'login' class="fa fa-sign-in fa-lg" title="Sign in"}}{{/link-to}}</li>
+      {{/if}}
+    </ul>
+  </div>
+</div>
+
+<div id="main">
   {{outlet}}
+</div>

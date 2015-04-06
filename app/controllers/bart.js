@@ -63,6 +63,7 @@ export default Ember.Controller.extend({
           distance = results.stations[0].distance;
           emissions = results.stations[0].emissions;
 
+
           _this.set('distance', distance);
           _this.set('emissions', emissions);
         });
@@ -71,14 +72,22 @@ export default Ember.Controller.extend({
 
     saveBART: function(startStation, endStation, calcDistance, calcEmissions) {
       var mode = 'bart';
-      var startLocation = startStation;
-      var endLocation = endStation;
+      var startLocation = this.getStationName(startStation);
+      var endLocation = this.getStationName(endStation);
       var distance = calcDistance;
-      var emissions = calcEmissions;
+      var emissions = calcEmissions.concat(' pounds of CO2');
       var bart = this.store.createRecord('leg', {mode: mode, start_location: startLocation,
         end_location: endLocation, distance: distance, emissions: emissions});
       bart.save();
       this.transitionToRoute('leg');
+    },
+  },
+
+  getStationName: function(id) {
+    for (var i = 0; i < this.stations.length; i++) {
+      if (this.stations[i].id === id){
+        return this.stations[i].stationName;
+      }
     }
   }
 });
