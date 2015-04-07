@@ -4,7 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'g-project-frontend',
     environment: environment,
-    adapterURL: process.env.ADAPTER_URL,
+    adapterURL: 'https://carfreeapi.herokuapp.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
