@@ -8,6 +8,22 @@
       Distances are in miles. Emissions are in pounds of CO2.
     </p>
 
+    <div class="row 50%">
+      <div class="6u">
+        <p>
+          Total Miles: {{formatted-emissions totalMiles}}
+        </p>
+        {{ember-chart type='Pie' data=milesChartData width=400 height=400 legend=false}}
+      </div>
+
+      <div class="6u">
+        <p>
+          Total Emissions Saved: {{formatted-emissions totalEmissions}}
+        </p>
+        {{ember-chart type='Pie' data=emissionsChartData width=400 height=400 legend=false}}
+      </div>
+    </div>
+
     <table class="table_Trips">
       <tr>
         <th><strong>Date</strong></th>
@@ -47,21 +63,5 @@
       </tr>
       {{/each}}
     </table>
-
-    <div class="row 50%">
-      <div class="6u">
-        <p>
-          Total Miles: {{formatted-emissions totalMiles}}
-        </p>
-        {{ember-chart type='Pie' data=milesChartData width=400 height=400 legend=false}}
-      </div>
-
-      <div class="6u">
-        <p>
-          Total Emissions Saved: {{formatted-emissions totalEmissions}}
-        </p>
-        {{ember-chart type='Pie' data=emissionsChartData width=400 height=400 legend=false}}
-      </div>
-    </div>
   </div>
 </section>
