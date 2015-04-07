@@ -4,7 +4,6 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'g-project-frontend',
     environment: environment,
-    adapterURL: 'https://carfreeapi.herokuapp.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -36,6 +35,7 @@ module.exports = function(environment) {
     },
 
     'simple-auth-devise': {
+      serverTokenEndpoint: 'https://carfreeapi.herokuapp.com/users/sign_in',
       identificationAttributeName: 'email'
     }
   };
