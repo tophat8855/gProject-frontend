@@ -21,7 +21,7 @@ export default Ember.Controller.extend({
       var emissions;
       var _this = this;
 
-      Ember.$.getJSON('http://localhost:3000/bus?start=' + startBus + '&end=' + endBus + '&route=' + route + '&direction=' + direction).then(function (results) {
+      Ember.$.getJSON(ENV.ApiHost + '/bus?start=' + startBus + '&end=' + endBus + '&route=' + route + '&direction=' + direction).then(function (results) {
         Ember.run(function() {
           distance = results.bus[0].distance;
           console.log(distance);

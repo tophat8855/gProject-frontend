@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from '../config/environment';
 
 export default Ember.Controller.extend({
   selectedStartStation: null,
@@ -58,7 +59,7 @@ export default Ember.Controller.extend({
       var emissions;
       var _this = this;
 
-      Ember.$.getJSON('http://localhost:3000/bart?start=' + startStation + '&end=' + endStation).then(function (results) {
+      Ember.$.getJSON(ENV.ApiHost + '/bart?start=' + startStation + '&end=' + endStation).then(function (results) {
         Ember.run(function() {
           distance = results.stations[0].distance;
           emissions = results.stations[0].emissions;
