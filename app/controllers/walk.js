@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
       var emissions;
       var distance;
 
-      var url = ENV.ADAPTER_URL + '/walk?start=' + start + '&end=' + end;
+      var url = ENV.ApiURL + '/walk?start=' + start + '&end=' + end;
 
       return Ember.$.getJSON(url).then(function (results) {
         Ember.run(function() {

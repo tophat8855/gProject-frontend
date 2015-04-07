@@ -6,6 +6,8 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    ApiURL: 'https://carfreeapi.herokuapp.com',
+
     EmberENV: {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build

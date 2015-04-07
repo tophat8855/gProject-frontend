@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
       var emissions;
       var _this = this;
 
-      return Ember.$.getJSON(ENV.ADAPTER_URL + '/bike?start=' + start + '&end=' + end).then(function (results) {
+      return Ember.$.getJSON(ENV.ApiURL + '/bike?start=' + start + '&end=' + end).then(function (results) {
         Ember.run(function() {
           distance = results["distance"]["text"];
           var floatDistance = parseFloat(distance);

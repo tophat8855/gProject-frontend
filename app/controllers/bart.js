@@ -59,7 +59,7 @@ export default Ember.Controller.extend({
       var emissions;
       var _this = this;
 
-      Ember.$.getJSON(Env.ADAPTER_URL + '/bart?start=' + startStation + '&end=' + endStation).then(function (results) {
+      Ember.$.getJSON(Env.ApiURL + '/bart?start=' + startStation + '&end=' + endStation).then(function (results) {
         Ember.run(function() {
           distance = results.stations[0].distance;
           emissions = results.stations[0].emissions;
