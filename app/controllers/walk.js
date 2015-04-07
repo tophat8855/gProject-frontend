@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from '../config/environment';
 
 export default Ember.Controller.extend({
   startWalk: null,
@@ -10,7 +11,7 @@ export default Ember.Controller.extend({
       var emissions;
       var distance;
 
-      var url = ENV.ApiHost + '/walk?start=' + start + '&end=' + end;
+      var url = ENV.ADAPTER_URL + '/walk?start=' + start + '&end=' + end;
 
       return Ember.$.getJSON(url).then(function (results) {
         Ember.run(function() {

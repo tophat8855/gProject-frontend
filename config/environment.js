@@ -19,8 +19,6 @@ module.exports = function(environment) {
       // when it is created
     },
 
-    ApiHost: 'carfree.herokuapp.com',
-
     contentSecurityPolicy: {
       'default-src': "'none'",
       'script-src': "'self'",

@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import ENV from '../config/environment';
 
 export default Ember.Controller.extend({
   startBus: null,
@@ -21,7 +22,7 @@ export default Ember.Controller.extend({
       var emissions;
       var _this = this;
 
-      Ember.$.getJSON(ENV.ApiHost + '/bus?start=' + startBus + '&end=' + endBus + '&route=' + route + '&direction=' + direction).then(function (results) {
+      Ember.$.getJSON(ENV.ADAPTER_URL + '/bus?start=' + startBus + '&end=' + endBus + '&route=' + route + '&direction=' + direction).then(function (results) {
         Ember.run(function() {
           distance = results.bus[0].distance;
           console.log(distance);
