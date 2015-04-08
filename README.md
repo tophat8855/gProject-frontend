@@ -1,6 +1,6 @@
 # Carfree Commute
 
-This app was created to allow a user to keep track of the miles they travel on foot, by bike, bus, and BART, as wells as the emissions they save by choosing human-powered or public transit.
+This app was created to allow a user to keep track of the miles they travel on foot, by bike, bus, and BART, as well as the emissions they save by choosing human-powered or public transit.
 
 # Backend
 
@@ -12,3 +12,6 @@ All of the features for calculating the miles traveled and emissions are availab
 
 Signing up is currently in progress- hopefully availabe in the next week.
 
+Chart.js is used for displaying pie charts for totals of miles traveled and emissions saved by mode of transportation.
+
+![alt text](https://github.com/tophat8855/gProject-API/blob/master/triphistoryscreenshot.png "View History Screenshot")
