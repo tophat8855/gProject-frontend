@@ -6,6 +6,7 @@ module.exports = function(environment) {
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
+    //ApiURL: 'http://localhost:3000',
     ApiURL: 'https://carfreeapi.herokuapp.com',
 
     EmberENV: {
@@ -32,12 +33,14 @@ module.exports = function(environment) {
 
     'simple-auth': {
       authorizer: 'simple-auth-authorizer:devise',
+      identificationAttributeName: 'email',
       routeAfterAuthentication: 'leg',
       crossOriginWhitelist: ['*']
     },
 
     'simple-auth-devise': {
       serverTokenEndpoint: 'https://carfreeapi.herokuapp.com/users/sign_in',
+      //serverTokenEndpoint: 'http://localhost:3000/users/sign_in',
       identificationAttributeName: 'email'
     }
   };
