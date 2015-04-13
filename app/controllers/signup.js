@@ -1,6 +1,6 @@
 import Ember from "ember";
 
-export default Ember.ArrayController.extend({
+export default Ember.Controller.extend({
   actions: {
     signUp: function () {
       var email = this.get('email');
@@ -13,11 +13,11 @@ export default Ember.ArrayController.extend({
       self.set('email', '');
       self.set('password', '');
       user.save().then(function () {
-        this.get('session').authenticate('simple-auth-authenticator: devise', {
-          indentification: email,
+        this.get('session').authenticate('simple-auth-authenticator:devise', {
+          identification: email,
           password: password
         });
-        self.transitionToRoute('legs');
+        self.transitionToRoute('leg');
       }.bind(self));
     },
   }
