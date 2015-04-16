@@ -1,10 +1,25 @@
-<div class="wrapper">
-  <form class="form-signup" {{action 'signUp' on='submit'}}>
-    <h2 class="form-signin-heading">Sign Up</h2>
-    {{input value=email placeholder='email' class="form-control"}}
+<section class="four">
+  <div class="container">
+    <header>
+      <h2>Sign Up</h2>
+    </header>
 
-    {{input value=password placeholder='password' type='password' class="form-control"}}
+    <form {{action 'signUp' on='submit'}}>
+      <div class="row 50%">
+        <div class="6u">
+          {{input value=email placeholder='email' type="text"}}
+        </div>
+        <div class="6u">
+          {{input value=password placeholder='password' type='password' class="form-control"}}
+        </div>
+      </div>
 
-    <button class="btn btn-lg btn-primary " type="submit" {{action 'signUp'}}>Sign Up</button>
-  </form>
-</div>
+      <div class="row">
+        <div class="12u">
+          <input type="submit" value="Sign Up" />
+        </div>
+      </div>
+    </form>
+
+  </div>
+</section>
